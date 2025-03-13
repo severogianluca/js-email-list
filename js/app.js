@@ -1,24 +1,32 @@
 console.log('namoooooo')
 
-for (let i = 0; i < 10; i++){
+let result = '';
 
-axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then ((response) =>{
-    console.log(response.data.response);
-    
+for (let i = 0; i < 10; i++) {
 
-   
+    axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
+        console.log(response.data.response);
 
-
-    
-
-
-
-})
-.catch((error) =>{
-    console.log('errore');
-    console.log(error);
-})
-
+        const elementContainerCard = document.getElementById('container-card');
+        
 
         
+        result += `<div class="card">
+            <div class="card-body">
+              ${response.data.response }
+            </div>
+        </div>
+         `
+
+         elementContainerCard.innerHTML = result;
+
+
+    })
+        .catch((error) => {
+            console.log('errore');
+            console.log(error);
+        })
+
+
 }
+
